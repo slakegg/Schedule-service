@@ -50,7 +50,16 @@ html, body {
   font-size: 0.95rem;
   color: var(--muted);
 }
+.clock-wrap {
+  text-align: right;
+}
 
+.date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
 .clock {
   font-variant-numeric: tabular-nums;
   font-size: 0.95rem;
