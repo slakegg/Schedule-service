@@ -149,6 +149,15 @@ function tickClock() {
   clockEl.textContent = new Date().toLocaleTimeString('ru-RU');
 }
 
+function tickDate() {
+  dateEl.textContent = new Date().toLocaleDateString('ru-RU', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
+
 groupSelect.addEventListener('change', async (e) => {
   selectedGroupId = e.target.value;
   await loadSchedule();
@@ -159,6 +168,10 @@ setInterval(() => {
   renderNow();
   renderDay(selectedDay);
 }, 1000);
+setInterval(tickDate, 60 * 1000);
 
 tickClock();
+tickDate();
 loadGroups();
+
+
