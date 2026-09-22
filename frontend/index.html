@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Расписание</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <span class="brand__mark">Пара</span>
+      <span class="brand__word">Расписание</span>
+    </div>
+    <div class="clock" id="clock">--:--:--</div>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="control">
+    <label class="control__label" for="group-select">Группа</label>
+    <select id="group-select" class="control__select">
+      <option value="">Загрузка групп…</option>
+    </select>
+  </section>
+
+  <section class="now-card" id="now-card">
+    <p class="now-card__eyebrow">Сейчас</p>
+    <p class="now-card__status" id="now-status">Выберите группу</p>
+    <p class="now-card__detail" id="now-detail"></p>
+  </section>
+
+  <nav class="days" id="days-nav"></nav>
+
+  <section class="lessons" id="lessons-list">
+    <p class="lessons__empty">Выберите группу, чтобы увидеть расписание.</p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  Данные обновляются из единой базы — измените расписание один раз, оно обновится и на сайте, и в Telegram-боте.
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/2.45.4/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
