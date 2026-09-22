@@ -9,6 +9,7 @@ const lessonsList = document.getElementById('lessons-list');
 const nowStatus = document.getElementById('now-status');
 const nowDetail = document.getElementById('now-detail');
 const clockEl = document.getElementById('clock');
+const dateEl = document.getElementById('date-display');
 
 let scheduleCache = [];
 let selectedDay = jsDayToOurDay(new Date().getDay());
