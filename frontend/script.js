@@ -1,4 +1,4 @@
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const DAY_NAMES = ['', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 const DAY_NAMES_FULL = ['', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
@@ -35,7 +35,7 @@ function formatTime(t) {
 }
 
 async function loadGroups() {
-  const { data, error } = await supabase.from('groups').select('id, name').order('name');
+  const { data, error } = await supabaseClient.from('groups').select('id, name').order('name');
   if (error) {
     groupSelect.innerHTML = '<option value="">Ошибка загрузки групп</option>';
     console.error(error);
@@ -51,13 +51,12 @@ async function loadGroups() {
 
 async function loadSchedule() {
   if (!selectedGroupId) return;
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('schedule')
     .select('*')
     .eq('group_id', selectedGroupId)
     .order('day_of_week', { ascending: true })
     .order('lesson_number', { ascending: true });
-
   if (error) {
     lessonsList.innerHTML = '<p class="lessons__empty">Не удалось загрузить расписание.</p>';
     console.error(error);
