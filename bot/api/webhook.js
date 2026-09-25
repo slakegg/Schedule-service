@@ -61,7 +61,7 @@ async function setUserGroup(chatId, groupId) {
 function mainMenu() {
   return {
     reply_markup: {
-      keyboard: [['📅 /today Расписание на сегодня'], ['⏰ /now Какая пара сейчас'], ['🔄 /group Сменить группу']],
+      keyboard: [['/today'], ['/now'], ['/group']],
       resize_keyboard: true,
     },
   };
